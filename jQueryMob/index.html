@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Application Exam</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    p {
+      color: #666;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    
+    .button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LPII Exam </h1>
+    <p>This webiste highlights about jQuery</p>
+    
+    <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</p>
+    <p>With jQuery, we can easily select elements in the HTML document using powerful selectors, manipulate their attributes or content, handle events such as clicks or form submissions, and create smooth animations and effects.</p>
+    <p>Some common highlights of jQuery include:</p>
+    <ul>
+      <li>Adding interactivity and dynamic behavior to web pages</li> <br>
+      <li>Making AJAX requests to retrieve data from a server without refreshing the entire page</li> <br>
+      <li>Creating animations and transitions to enhance the user experience</li> <br>
+      <li>Validating and manipulating form input before submission</li><br>
+    </ul>
+    
+    <button class="button">Click Me!</button>
+    
+    <script>
+      $(document).ready(function() {
+        $('.button').click(function() {
+          alert('You clicked the button!');
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
