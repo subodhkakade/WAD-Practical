@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Store</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Book Store</h1>
+    
+    <div class="book">
+      <img src="https://i.etsystatic.com/24307483/r/il/582184/3121962896/il_fullxfull.3121962896_dfx4.jpg" alt="Book 1">
+      <h2>Book Title 1</h2>
+      <p>Author: Author Name 1</p>
+      <p>Price: $10</p>
+      <button onclick="purchaseBook('Book Title 1')">Purchase</button>
+    </div>
+    
+    <div class="book">
+      <img src="book2.jpg" alt="Book 2">
+      <h2>Book Title 2</h2>
+      <p>Author: Author Name 2</p>
+      <p>Price: $15</p>
+      <button onclick="purchaseBook('Book Title 2')">Purchase</button>
+    </div>
+    
+    <div class="book">
+      <img src="book3.jpg" alt="Book 3">
+      <h2>Book Title 3</h2>
+      <p>Author: Author Name 3</p>
+      <p>Price: $12</p>
+      <button onclick="purchaseBook('Book Title 3')">Purchase</button>
+    </div>
+  </div>
+  
+  <script>
+    function purchaseBook(bookTitle) {
+      sessionStorage.setItem('selectedBook', bookTitle);
+      window.location.href = 'confirm-order.html';
+    }
+  </script>
+</body>
+</html>
