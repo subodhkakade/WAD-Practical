@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    #sidebar {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    #sidebar li {
+      margin-bottom: 10px;
+    }
+    
+    #sidebar li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    #content {
+      padding: 20px;
+    }
+    
+    .card {
+      margin-bottom: 20px;
+      border: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-body {
+      padding: 20px;
+    }
+    
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3" id="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9" id="content">
+        <h2>Statistics</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Attendance on Weekdays</h5>
+                <canvas id="attendanceChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text">100</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h2>Data Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Location</th>
+        <th>Age</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>Manager</td>
+        <td>New York</td>
+        <td>35</td>
+        <td>$80,000</td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>Developer</td>
+        <td>London</td>
+        <td>28</td>
+        <td>$65,000</td>
+      </tr>
+      <tr>
+        <td>Michael Johnson</td>
+        <td>Designer</td>
+        <td>Paris</td>
+        <td>31</td>
+        <td>$70,000</td>
+      </tr>
+      <tr>
+        <td>Sarah Williams</td>
+        <td>Marketing</td>
+        <td>Sydney</td>
+        <td>32</td>
+        <td>$75,000</td>
+      </tr>
+      <tr>
+        <td>Robert Brown</td>
+        <td>Analyst</td>
+        <td>Tokyo</td>
+        <td>29</td>
+        <td>$68,000</td>
+      </tr>
+      <tr>
+        <td>Emily Davis</td>
+        <td>Accountant</td>
+        <td>Berlin</td>
+        <td>34</td>
+        <td>$82,000</td>
+      </tr>
+      <tr>
+        <td>David Wilson</td>
+        <td>Engineer</td>
+        <td>San Francisco</td>
+        <td>30</td>
+        <td>$75,000</td>
+      </tr>
+      <tr>
+        <td>Amy Thompson</td>
+        <td>HR</td>
+        <td>Toronto</td>
+        <td>33</td>
+        <td>$72,000</td>
+      </tr>
+      <tr>
+        <td>Richard Miller</td>
+        <td>Sales</td>
+        <td>Mumbai</td>
+        <td>27</td>
+        <td>$68,000</td>
+      </tr>
+      <tr>
+        <td>Lisa Anderson</td>
+        <td>Consultant</td>
+        <td>Singapore</td>
+        <td>31</td>
+        <td>$78,000</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
+
+  <script>
+    var ctx = document.getElementById('attendanceChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        datasets: [{
+          label: 'Attendance',
+          data: [80, 90, 75, 85, 95],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
