@@ -1,0 +1,78 @@
+CRUD OPERATIONS
+
+- Open new folder in VSCode and run 
+npm init
+npm install express
+npm install mongodb
+
+- Open MongoDB Compass
+Create database 
+Create collection
+Add values
+
+use student
+'switched to db student'
+db.createCollection("profile")
+{ ok: 1 }
+db.profile.insertOne({name: "Rohit", age: "32", city: "Pune"})
+{ acknowledged: true,
+  insertedId: ObjectId("647410f49ba4ba5c6f560419") }
+
+- Create two files index.js and mongodb.js (for database connection)
+
+- In MongoDB.js file: 
+const {MongoClient} = require('mongodb');
+const url="mongodb://localhost:27017"
+const database = 'student';
+const client=new MongoClient(url);
+
+const dbConnect = async()=>{
+const result = await client.connect();
+const db = await result.db(database);
+return db.collection('profile');
+}
+
+module.exports=dbConnect;
+
+
+-In index.js file: 
+
+const dbConnect=require('./mongodb')
+const express=require('express');
+const {response} = require('express');
+const app=express();
+app.use(express.json())
+
+//GET API
+app.get('/',async(req,res)=>{
+let result=await dbConnect();
+result=await result.find().toArray();
+res.send(result);
+})
+
+//POST API
+app.post('/',async(req,res)=>(
+let result=await dbConnect();
+result = await result.insertOne(req.body);
+res.send("Data Inserted Successfully")
+})
+
+
+
+//PUT API
+app.put('/:name',async(req,res)=>{
+let result=await dbConnect();
+result = await result.updateOne({name:req.params.name},{$set:req.body});
+res.send("Data Updated Successfully")
+})
+
+//DELETE API
+app.delete('/:name',async(req,res)=>{
+let result=await dbConnect();
+result=await result.deleteOne({name:req.params.name})
+res.send("Data Deleted Successfully");
+})
+app.listen(3000);
+
+
+
